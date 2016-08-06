@@ -1,0 +1,4 @@
+/* -*- mode: c${1:mode=++} -*- */
+#pragma once
+
+$0

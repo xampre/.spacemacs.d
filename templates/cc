@@ -1,0 +1,17 @@
+/*
+`(file-name-nondirectory (buffer-file-name))`
+
+Created on: `(time-stamp-string "%:dth %:b, %:y (%3a.)")`
+    Author: `(user-login-name)`
+*/
+
+`
+(let ( (header
+        (concat (file-name-sans-extension (file-name-nondirectory (buffer-file-name))) ".h"))
+       (fmt "#include \"%s\"") )
+  (if (file-exists-p header)
+      (format fmt header)
+    (format (concat "/* " fmt " */") header) ))
+`
+
+$0

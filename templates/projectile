@@ -1,0 +1,5 @@
+`(mapconcat
+  'identity
+  (loop for dir in '("node_modules" "build" "tmp")
+        if (file-exists-p dir)
+        collect (concat "-/" dir)) "\n")`

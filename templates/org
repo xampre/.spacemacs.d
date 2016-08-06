@@ -1,0 +1,8 @@
+#+TITLE: `
+(let ( (name (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))) )
+  (capitalize (mapconcat 'identity (split-string name "_") " ")) )`
+#+AUTHOR: `user-login-name`
+#+STARTUP: hidestars
+
+
+* $0
