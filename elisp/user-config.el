@@ -152,6 +152,16 @@
       (setq migemo-dictionary "c:/opt2/cmigemo/dict/utf-8/migemo-dict"))
     (migemo-init)))
 
+(with-eval-after-load 'org
+  (setq org-return-follows-link t
+        org-startup-with-inline-images t
+        org-startup-truncated nil
+        org-image-actual-width nil)
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "SOMEDAY(s)")
+          (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
+  (add-hook 'org-mode-hook 'flyspell-mode))
+
 (with-eval-after-load 'projectile
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
   (add-to-list 'projectile-globally-ignored-directories "bower_modules"))
