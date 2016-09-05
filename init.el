@@ -26,12 +26,12 @@ values."
      auto-completion
      ;; better-defaults
      c-c++
-     ;;clojure
+     ;; clojure
      emacs-lisp
-     ;;elixer
-     ;;erlang
+     ;; elixer
+     ;; erlang
      dockerfile
-     ;;ess
+     ;; ess
      go
      html
      javascript
@@ -39,12 +39,13 @@ values."
      haskell
      java
      org
-     ;;perl
-     ;;php
+     ;; perl
+     ;; php
      python
      yaml
-     ;;markdown
-     ;;git
+     ;; markdown
+     git
+     github
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
