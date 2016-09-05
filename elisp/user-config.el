@@ -142,16 +142,6 @@
   (set-face-attribute 'whitespace-tab nil :background nil :underline  t))
 (set-face-attribute 'trailing-whitespace nil :underline t :background nil)
 
-(use-package migemo
-  :config
-  (progn
-    (setq migemo-command "cmigemo")
-    (setq migemo-options '("-q" "--emacs"))
-    (setq migemo-coding-system 'utf-8-unix)
-    (when (eq system-type 'windows-nt)
-      (setq migemo-dictionary "c:/opt2/cmigemo/dict/utf-8/migemo-dict"))
-    (migemo-init)))
-
 (with-eval-after-load 'org
   (setq org-return-follows-link t
         org-startup-with-inline-images t
