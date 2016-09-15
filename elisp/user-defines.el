@@ -28,6 +28,10 @@
              (lisp-interaction-mode)
              (insert initial-scratch-message)))))
 
+(defun trim-file-name-history ()
+  (interactive)
+  (setq file-name-history (-filter #'f-exists-p file-name-history)))
+
 (defun do-not-wont-final-newline ()
   (set (make-local-variable 'require-final-newline) nil))
 
