@@ -174,6 +174,10 @@
   (define-key flycheck-mode-map [f2] 'flycheck-next-error)
   (define-key flycheck-mode-map [S-f2] 'flycheck-previous-error))
 
+;; #Private
+(add-to-list 'load-path "~/.emacs.d/private/elisp")
+(require 'user-private nil t)
+
 
 ;; #hooks
 (add-hook 'after-save-hook 'delete-file-if-no-contents)
