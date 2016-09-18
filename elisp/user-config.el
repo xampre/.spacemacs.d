@@ -118,16 +118,18 @@
 
 ;; dired
 (put 'dired-find-alternate-file 'disabled nil)
-(defun dired-define-keys ()
+(with-eval-after-load 'dired-x
   (define-key dired-mode-map [f5] 'revert-buffer)
+  (define-key dired-mode-map [tab] 'other-window-or-split)
   (define-key dired-mode-map [backspace] 'dired-up-directory)
   (define-key dired-mode-map [return] 'dired-find-alternate-file)
   (define-key dired-mode-map "a" 'dired-find-file)
   (define-key dired-mode-map "b" 'dired-up-directory)
-  (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+  (define-key dired-mode-map "h" 'dired-up-directory)
+  (define-key dired-mode-map "l" 'dired-find-alternate-file)
+  (define-key dired-mode-map "w" 'wdired-change-to-wdired-mode)
   (define-key dired-mode-map "T" 'dired-sort-time)
   (define-key dired-mode-map "F" 'dired-sort-name))
-(add-hook 'dired-load-hook 'dired-define-keys)
 
 ;; Mouse
 (global-set-key [wheel-up] 'scroll-down-with-lines)
