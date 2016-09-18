@@ -50,6 +50,12 @@
   (let ((default-directory path))
     (normal-top-level-add-subdirs-to-load-path)))
 
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (split-window-horizontally))
+  (other-window 1))
+
 (defun set-alpha (n)
   "set frame parameter 'alpha"
   (interactive
