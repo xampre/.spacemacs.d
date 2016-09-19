@@ -70,19 +70,20 @@
 (global-set-key "\M-\C-y" 'lifo)
 (global-set-key (kbd "M-%") 'vr/query-replace)
 (global-set-key [(f12)] 'bs-cycle-next)
-(global-set-key [C-return] 'find-file-at-point)
+(global-set-key [C-M-down] 'open-next-file)
+(global-set-key [C-M-up] 'open-previous-file)
 (global-set-key [C-f8] 'run-konsole-this-buffer-dir)
 (global-set-key [C-iso-lefttab] 'mode-line-other-buffer)
+(global-set-key [C-return] 'find-file-at-point)
 (global-set-key [C-tab] 'mode-line-other-buffer)
-(global-set-key [C-M-up] 'open-previous-file)
-(global-set-key [C-M-down] 'open-next-file)
-(global-set-key [M-up] 'move-line-up)
 (global-set-key [M-down] 'move-line-down)
+(global-set-key [M-up] 'move-line-up)
 (global-set-key [S-f12] 'bs-cycle-previous)
 (global-set-key "\C-z" 'winner-undo)
 (global-set-key (kbd "C-S-Z") 'winner-redo)
 (global-set-key (kbd "M-[") 'hs-toggle-hiding)
 (global-set-key (kbd "M-]") 'hs-hide-all)
+
 (define-key evil-motion-state-map "\C-z" nil)
 (define-key evil-motion-state-map (kbd "C-S-z") nil)
 ;; minibuffer
@@ -152,7 +153,9 @@
   (setq org-todo-keywords
         '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "SOMEDAY(s)")
           (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
-  (add-hook 'org-mode-hook 'flyspell-mode))
+  (add-hook 'org-mode-hook 'flyspell-mode)
+  (define-key org-mode-map [C-tab] 'mode-line-other-buffer)
+  )
 
 (with-eval-after-load 'projectile
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
