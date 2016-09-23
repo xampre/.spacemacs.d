@@ -19,4 +19,8 @@
  web-mode-attr-indent-offset 2
  coffee-tab-width 4)
 
+(defun tab-width-4 ()
+  (setq tab-width 4))
+(add-hook 'makefile-mode-hook 'tab-width-4)
+
 (provide 'user-langs)
