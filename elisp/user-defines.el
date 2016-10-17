@@ -32,7 +32,7 @@
   (interactive)
   (setq file-name-history (-filter #'f-exists-p file-name-history)))
 
-(defun do-not-wont-final-newline ()
+(defun do-not-want-final-newline ()
   (set (make-local-variable 'require-final-newline) nil))
 
 (defun join-path (&rest paths)

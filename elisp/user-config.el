@@ -165,7 +165,7 @@
   (define-key helm-map "\C-w" 'backward-kill-word))
 
 (with-eval-after-load 'yasnippet
-  (add-hook 'snippet-mode-hook 'not-wont-final-newline)
+  (add-hook 'snippet-mode-hook 'do-not-want-final-newline)
   (define-key yas-minor-mode-map [tab] nil)
   (define-key yas-minor-mode-map (kbd "TAB") nil))
 
