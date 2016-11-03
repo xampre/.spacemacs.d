@@ -291,7 +291,6 @@ you should place you code here."
   (ido-mode -1)
   (helm-mode -1)
   (which-key-mode -1)
-  ;(desktop-save-mode t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

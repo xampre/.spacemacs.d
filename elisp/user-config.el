@@ -157,6 +157,11 @@
   (define-key org-mode-map [C-tab] 'mode-line-other-buffer)
   )
 
+(with-eval-after-load 'desktop
+  (delete 'file-name-history desktop-globals-to-save)
+  (delete 'tags-file-name desktop-globals-to-save)
+  (delete 'tags-table-list desktop-globals-to-save))
+
 (with-eval-after-load 'projectile
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
   (add-to-list 'projectile-globally-ignored-directories "bower_modules"))
@@ -193,6 +198,7 @@
 (global-whitespace-mode t)
 (global-auto-revert-mode t)
 (delete-selection-mode t)
+(show-paren-mode t)
 ;; elpa
 (global-flycheck-mode t)
 (flycheck-pos-tip-mode t)

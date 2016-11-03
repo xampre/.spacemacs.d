@@ -32,6 +32,13 @@
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "ja")
 (setq vr/engine 'pcre2el) ; visual-regexp-steroids
+(setq desktop-missing-file-warning nil)
+(setq recentf-max-saved-items 500
+      recentf-auto-cleanup 10
+      recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
+
+;; #enable modes
+(desktop-save-mode t)
 
 ;; #disable modes
 (electric-indent-mode -1)
