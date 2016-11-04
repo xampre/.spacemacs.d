@@ -1,8 +1,7 @@
-;; #platform settings
+﻿;; #platform settings
 (require 'user-defines)
 
 (defun windows-initialize ()
-  (require 'gnutls)
   (setq default-directory "~/")
   (when window-system (set-frame-font "ＭＳ ゴシック-11")) ; (font-candidate "源ノ角ゴシック Code JP R-10" "ＭＳ ゴシック-11")))
   (set-file-name-coding-system 'cp932)
@@ -17,13 +16,14 @@
     (w32-ime-initialize))
   ;; gnutls
   ;; http://proglab.blog.fc2.com/blog-entry-14.html
-  (setq dynamic-library-alist
-        (let ((res))
-          (dolist (elm dynamic-library-alist res)
-            (if (equal 'gnutls (car elm))
-                (add-to-list 'res '(gnutls "libgnutls-30.dll") t)
-              (add-to-list 'res elm t)))))
-  (setq gnutls-trustfiles '("c:/msys64/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"))
+  ;;(require 'gnutls)
+  ;;(setq dynamic-library-alist
+  ;;      (let ((res))
+  ;;        (dolist (elm dynamic-library-alist res)
+  ;;          (if (equal 'gnutls (car elm))
+  ;;              (add-to-list 'res '(gnutls "libgnutls-30.dll") t)
+  ;;            (add-to-list 'res elm t)))))
+  ;;(setq gnutls-trustfiles '("c:/msys64/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"))
   )
 
 (defun linux-initialize ()
