@@ -74,11 +74,19 @@ values."
      recompile-on-save
      crux
      refine
+     csv-mode
+     ;;persp-mode
+     ;;helm-swoop
+     ;;google-translate
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages
    '(
      ;;popwin
+     ;;which-key
+     smartparens
+     ido
+     recentf
      )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -287,10 +295,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   (require 'user-config)
-  (ido-mode -1)
   (helm-mode -1)
   (which-key-mode -1)
-  ;(desktop-save-mode t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -300,9 +306,8 @@ you should place you code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (smeargle orgit magit-gitflow magit-gh-pulls helm-gitignore request gitignore-mode github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh marshal logito pcache ht evil-magit magit magit-popup git-commit with-editor refine loop list-utils visual-regexp powerline py-yapf hydra alert multiple-cursors js2-mode dash-functional tern packed anaconda-mode auto-complete avy company anzu iedit smartparens highlight flycheck yasnippet projectile helm popup helm-core async f s dash package-build bind-map evil shm recompile-on-save hindent haskell-snippets go-eldoc flycheck-haskell emacs-eclim disaster crux company-go go-mode company-ghc ghc haskell-mode company-cabal company-c-headers cmm-mode cmake-mode clang-format yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights visual-regexp-steroids vi-tilde-fringe use-package toc-org tagedit spacemacs-theme spaceline smooth-scrolling slim-mode scss-mode sass-mode restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode popwin pip-requirements persp-mode pcre2el paradox page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot free-keys flycheck-pos-tip flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu erlang emmet-mode elisp-slime-nav dockerfile-mode define-word cython-mode company-web company-tern company-statistics company-quickhelp company-anaconda coffee-mode clean-aindent-mode buffer-move bracketed-paste avy-migemo auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+ )
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

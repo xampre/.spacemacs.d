@@ -30,7 +30,9 @@
 
 (defun trim-file-name-history ()
   (interactive)
-  (setq file-name-history (-filter #'f-exists-p file-name-history)))
+  (setq file-name-history
+        (-filter #'f-exists-p
+                 (remove-duplicates file-name-history :test #'equal))))
 
 (defun do-not-want-final-newline ()
   (set (make-local-variable 'require-final-newline) nil))

@@ -4,6 +4,7 @@
 (require 'user-platforms)
 
 (require 'autoinsert)
+(require 'whitespace)
 (require 'evil)
 (require 'helm-config)
 
@@ -37,7 +38,6 @@
   `(loop for (reg file) in ',reg-file-pairs do
         (add-yas-auto-insert reg file)))
 
-;;; #autoinsert
 (add-yas-auto-insers
  ("\\.c$" "c")
  ("\\.cc$" "cc")
@@ -140,10 +140,9 @@
 (global-set-key [C-wheel-up] '(lambda () (interactive) (text-scale-increase 1)))
 (global-set-key [C-mouse-2] '(lambda () (interactive) (text-scale-increase 0)))
 
-(use-package whitespace
-  :config
-  (set-face-attribute 'whitespace-tab nil :background nil :underline  t))
-(set-face-attribute 'trailing-whitespace nil :underline t :background nil)
+(with-eval-after-load 'whitespace
+  (set-face-attribute 'whitespace-tab nil :background nil :underline  t)
+  (set-face-attribute 'trailing-whitespace nil :underline t :background nil))
 
 (with-eval-after-load 'org
   (setq org-return-follows-link t
@@ -156,6 +155,11 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (define-key org-mode-map [C-tab] 'mode-line-other-buffer)
   )
+
+(with-eval-after-load 'desktop
+  (delete 'file-name-history desktop-globals-to-save)
+  (delete 'tags-file-name desktop-globals-to-save)
+  (delete 'tags-table-list desktop-globals-to-save))
 
 (with-eval-after-load 'projectile
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
@@ -179,20 +183,27 @@
   (define-key flycheck-mode-map [f2] 'flycheck-next-error)
   (define-key flycheck-mode-map [S-f2] 'flycheck-previous-error))
 
+(with-eval-after-load 'savehist
+  (setq history-length 500))
+
 ;; #Private
 (add-to-list 'load-path "~/.emacs.d/private/elisp")
 (require 'user-private nil t)
-
 
+;; #advices
+(defun after-trim-file-name-history (&rest args) (trim-file-name-history))
+(advice-add 'dired-delete-file :after #'after-trim-file-name-history)
+
 ;; #hooks
 (add-hook 'after-save-hook 'delete-file-if-no-contents)
 
 ;; #enable modes
-(auto-insert-mode t)
 (auto-image-file-mode t)
 (global-whitespace-mode t)
 (global-auto-revert-mode t)
 (delete-selection-mode t)
+(show-paren-mode t)
+(auto-insert-mode t)
 ;; elpa
 (global-flycheck-mode t)
 (flycheck-pos-tip-mode t)
