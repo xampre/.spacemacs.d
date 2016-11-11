@@ -19,8 +19,12 @@
  web-mode-attr-indent-offset 2
  coffee-tab-width 4)
 
-(defun tab-width-4 ()
+;; #skewer-mode
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
+(defun set-tab-width-4 ()
   (setq tab-width 4))
-(add-hook 'makefile-mode-hook 'tab-width-4)
+(add-hook 'makefile-mode-hook 'set-tab-width-4)
 
 (provide 'user-langs)

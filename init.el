@@ -75,6 +75,7 @@ values."
      crux
      refine
      csv-mode
+     skewer-mode
      ;;persp-mode
      ;;helm-swoop
      ;;google-translate
