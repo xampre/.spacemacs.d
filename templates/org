@@ -4,11 +4,8 @@
 #+AUTHOR: `user-login-name`
 #+DATE: `(progn (org-insert-time-stamp nil nil t) nil)`
 #+KEYWORDS:
-#+OPTIONS:
-#+EXPORT_SELECT_TAGS:
-#+EXPORT_EXCLUDE_TAGS: @private
 #+TAGS:
 #+STARTUP: hidestars
-
+#+CATEGORIES:
 
 * $0
