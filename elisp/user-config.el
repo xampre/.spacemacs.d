@@ -109,6 +109,7 @@
 (define-key evil-motion-state-map "  " 'helm-M-x)
 (define-key evil-motion-state-map " b" 'helm-buffers-list)
 (define-key evil-normal-state-map " d" 'duplicate-current-line)
+(define-key evil-motion-state-map " o" 'helm-bookmarks)
 (define-key evil-motion-state-map "t" 'avy-migemo-goto-word-1)
 (define-key evil-motion-state-map " Ha" 'hs-show-all)
 (define-key evil-motion-state-map " HA" 'hs-hide-all)
