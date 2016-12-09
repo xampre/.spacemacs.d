@@ -34,6 +34,7 @@
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "ja")
 (setq desktop-missing-file-warning nil)
+(setq helm-ag-base-command "grep -rn")
 ;;(setq recentf-max-saved-items 500
 ;;      recentf-auto-cleanup 10
 ;;      recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
