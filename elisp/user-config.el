@@ -155,7 +155,8 @@
           (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
   (add-hook 'org-mode-hook 'flyspell-mode)
   (define-key org-mode-map [C-tab] 'mode-line-other-buffer)
-  (define-key org-mode-map [f5] 'org-render-html)
+  (define-key org-mode-map [f5] 'org-mode-restart)
+  (define-key org-mode-map [C-f5] 'org-render-html)
   )
 
 (with-eval-after-load 'desktop
