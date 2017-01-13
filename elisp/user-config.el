@@ -2,6 +2,7 @@
 (require 'user-file-dir)
 (require 'user-langs)
 (require 'user-platforms)
+(require 'user-advices)
 
 (require 'autoinsert)
 (require 'whitespace)

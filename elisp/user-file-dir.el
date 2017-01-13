@@ -1,6 +1,6 @@
 ;;; #File and Director settings
 
-(setq auto-insert-directory "~/.spacemacs.d/templates")
+(setq auto-insert-directory "~/.spacemacs.d/templates/")
 
 (use-package migemo
   :if (executable-find "cmigemo")
