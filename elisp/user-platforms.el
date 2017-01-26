@@ -3,7 +3,8 @@
 
 (defun windows-initialize ()
   (setq default-directory "~/")
-  (when window-system (set-frame-font "ＭＳ ゴシック-11")) ; (font-candidate "源ノ角ゴシック Code JP R-10" "ＭＳ ゴシック-11")))
+  (when window-system
+    (set-frame-font "ＭＳ ゴシック-11")) ; (font-candidate "源ノ角ゴシック Code JP R-10" "ＭＳ ゴシック-11")))
   (set-file-name-coding-system 'cp932)
   (set-keyboard-coding-system 'cp932)
   (set-terminal-coding-system 'cp932)
@@ -27,10 +28,6 @@
   )
 
 (defun linux-initialize ()
-  (when window-system
-    (let ((font (font-candidate "Source Code Pro Medium Italic 11")))
-      (when font (set-frame-font font))))
-
   (use-package mozc
     :init (setq default-input-method "japanese-mozc")
     :config (prefer-coding-system 'utf-8-unix))

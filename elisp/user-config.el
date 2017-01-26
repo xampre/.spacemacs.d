@@ -194,12 +194,12 @@
 (add-to-list 'load-path "~/.emacs.d/private/elisp")
 (require 'user-private nil t)
 
-;; #advices
-(defun after-trim-file-name-history (&rest args) (trim-file-name-history))
-(advice-add 'dired-delete-file :after #'after-trim-file-name-history)
-
 ;; #hooks
 (add-hook 'after-save-hook 'delete-file-if-no-contents)
+
+;; #setqs
+(setq google-translate-default-source-language "en")
+(setq google-translate-default-target-language "ja")
 
 ;; #enable modes
 (auto-image-file-mode t)

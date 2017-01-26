@@ -31,8 +31,6 @@
 (setq eldoc-idle-delay 1
       eldoc-echo-area-use-multiline-p t)
 (setq vr/engine 'pcre2el) ; visual-regexp-steroids
-(setq google-translate-default-source-language "en")
-(setq google-translate-default-target-language "ja")
 (setq desktop-missing-file-warning nil)
 (setq helm-ag-base-command "grep -rn")
 ;;(setq recentf-max-saved-items 500
