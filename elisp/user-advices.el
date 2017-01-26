@@ -6,4 +6,8 @@
   (funcall orig-fn extension subtreep pub-dir))
 (advice-add 'org-export-output-file-name :around 'org-export-output-file-name--set-directory)
 
+;; dired-delete-file
+(defun after-trim-file-name-history (&rest args) (trim-file-name-history))
+(advice-add 'dired-delete-file :after #'after-trim-file-name-history)
+
 (provide 'user-advices)
