@@ -30,7 +30,7 @@ values."
      emacs-lisp
      ;; elixer
      ;; erlang
-     dockerfile
+     docker
      ;; ess
      go
      html
@@ -150,7 +150,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -298,6 +298,7 @@ you should place you code here."
   (require 'user-config)
   (helm-mode -1)
   (which-key-mode -1)
+  (global-set-key "\C-x\C-f" 'find-file)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
