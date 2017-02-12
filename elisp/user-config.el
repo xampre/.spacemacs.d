@@ -132,7 +132,9 @@
   (define-key dired-mode-map "l" 'dired-find-alternate-file)
   (define-key dired-mode-map "w" 'wdired-change-to-wdired-mode)
   (define-key dired-mode-map "T" 'dired-sort-time)
-  (define-key dired-mode-map "F" 'dired-sort-name))
+  (define-key dired-mode-map "F" 'dired-sort-name)
+  (define-key dired-mode-map "\C-k" 'mkdir)
+  )
 
 ;; Mouse
 (global-set-key [wheel-up] 'scroll-down-with-lines)
