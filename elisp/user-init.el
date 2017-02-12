@@ -33,6 +33,7 @@
 (setq vr/engine 'pcre2el) ; visual-regexp-steroids
 (setq desktop-missing-file-warning nil)
 (setq helm-ag-base-command "grep -rn")
+(setq flycheck-pos-tip-timeout 20)
 ;;(setq recentf-max-saved-items 500
 ;;      recentf-auto-cleanup 10
 ;;      recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
