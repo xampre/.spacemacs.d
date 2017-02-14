@@ -31,6 +31,8 @@
   (use-package mozc
     :init (setq default-input-method "japanese-mozc")
     :config (prefer-coding-system 'utf-8-unix))
+  (use-package mozc-popup
+    :init (setq mozc-candidate-style 'popup))
   (global-set-key (kbd "s-o") 'activate-input-method-cmd)
   (global-set-key (kbd "s-i") 'inactivate-input-method-cmd)
   (with-eval-after-load 'evil

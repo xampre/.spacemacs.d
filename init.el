@@ -77,6 +77,8 @@ values."
      refine
      csv-mode
      skewer-mode
+     mozc
+     mozc-popup
      ;;persp-mode
      ;;helm-swoop
      ;;google-translate
