@@ -38,6 +38,7 @@ values."
      react
      haskell
      java
+     octave
      org
      ;; perl
      ;; php
