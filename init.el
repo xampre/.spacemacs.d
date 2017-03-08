@@ -23,7 +23,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion
+      :variables auto-completion-enable-sort-by-usage t)
      ;; better-defaults
      (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
      ;; clojure
@@ -62,6 +63,7 @@ values."
    '(
      dash
      f
+     fn
      ;;flycheck
      flycheck-pos-tip
      migemo
@@ -89,6 +91,7 @@ values."
    '(
      ;;popwin
      ;;which-key
+     auto-complete
      smartparens
      ido
      recentf
