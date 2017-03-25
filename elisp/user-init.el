@@ -18,6 +18,7 @@
 (setq delete-by-moving-to-trash t)
 (setq compilation-scroll-output t)
 (setq scroll-conservatively 1)
+(setq scroll-preserve-screen-position 'always)
 ;;(setq line-spacing 0.1)
 (setq whitespace-display-mappings
       ;; show whitespace
