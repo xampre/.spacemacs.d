@@ -4,7 +4,6 @@
 (require 'user-platforms)
 (require 'user-advices)
 
-(require 'autoinsert)
 (require 'whitespace)
 (require 'evil)
 (require 'helm-config)
@@ -26,31 +25,6 @@
   (let ((yas-fallback-behavior 'return-nil))
     (or (yas-expand) (helm-yas-complete))))
 
-;; #auto-insert
-;; depends: yasnippet
-(defun my-autoinsert-yas-expand ()
-  "Replace text in yasnippet template."
-  (yas-expand-snippet (buffer-string) (point-min) (point-max)))
-
-(defmacro add-yas-auto-insert (condition fname)
-  `(add-to-list 'auto-insert-alist (cons ,condition (vector ,fname 'my-autoinsert-yas-expand))))
-
-(defmacro add-yas-auto-insers (&rest reg-file-pairs)
-  `(loop for (reg file) in ',reg-file-pairs do
-        (add-yas-auto-insert reg file)))
-
-(add-yas-auto-insers
- ("\\.c$" "c")
- ("\\.cc$" "cc")
- ("\\.h$" "h")
- ("\\.html$" "html")
- ("\\.lisp$" "lisp")
- ("Makefile" "Makefile")
- (".projectile" "projectile")
- ("\\.org$" "org")
- ("\\.pl$" "pl")
- ("\\.py$" "py")
- ("\\.sh$" "sh"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; #define keys
@@ -194,6 +168,10 @@
 (with-eval-after-load 'savehist
   (setq history-length 500))
 
+(use-package migemo
+  :if (executable-find "cmigemo")
+  :config (migemo-init))
+
 ;; #Private
 (add-to-list 'load-path "~/.emacs.d/private/elisp")
 (require 'user-private nil t)
@@ -209,7 +187,6 @@
 (auto-image-file-mode t)
 (global-whitespace-mode t)
 (global-auto-revert-mode t)
-(global-company-mode t)
 (delete-selection-mode t)
 (show-paren-mode t)
 (auto-insert-mode t)
