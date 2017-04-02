@@ -1,6 +1,32 @@
 ﻿;; #platform settings
 (require 'user-defines)
 
+(use-package mozc
+  :if (executable-find "mozc_emacs_helper")
+  :init (setq default-input-method "japanese-mozc")
+  :config (prefer-coding-system 'utf-8-unix))
+
+(with-eval-after-load 'mozc
+  (setq mozc-candidate-style 'popup)
+  (require 'mozc-popup)
+
+  (global-set-key (kbd "s-o") 'activate-input-method-cmd)
+  (global-set-key (kbd "s-i") 'inactivate-input-method-cmd)
+
+  (with-eval-after-load 'evil
+    (add-hook 'evil-insert-state-entry-hook 'inactivate-input-method-cmd))
+
+  (when (or (eq system-type 'windows-nt)
+            (and (file-exists-p "/proc/version")
+                 (not (string= "" (shell-command-to-string "grep Microsoft /proc/version")))))
+    ;; Windows の mozc ではセッション接続直後 directモード になるので hiraganaモード にする
+    (advice-add
+     'mozc-session-execute-command
+     :after (lambda (&rest args)
+              (when (eq (nth 0 args) 'CreateSession)
+                ;; (mozc-session-sendkey '(hiragana)))))
+                (mozc-session-sendkey '(Hankaku/Zenkaku)))))))
+
 (defun windows-initialize ()
   (setq default-directory "~/")
   (when window-system
@@ -27,20 +53,7 @@
   ;;(setq gnutls-trustfiles '("c:/msys64/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"))
   )
 
-(defun linux-initialize ()
-  (use-package mozc
-    :init (setq default-input-method "japanese-mozc")
-    :config (prefer-coding-system 'utf-8-unix))
-  (use-package mozc-popup
-    :init (setq mozc-candidate-style 'popup))
-  (global-set-key (kbd "s-o") 'activate-input-method-cmd)
-  (global-set-key (kbd "s-i") 'inactivate-input-method-cmd)
-  (with-eval-after-load 'evil
-    (add-hook 'evil-insert-state-entry-hook 'inactivate-input-method-cmd)))
-
 (case system-type
-  (windows-nt (windows-initialize))
-  (gnu/linux (linux-initialize))
-  (t nil))
+  (windows-nt (windows-initialize)))
 
 (provide 'user-platforms)
