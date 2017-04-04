@@ -1,6 +1,15 @@
 ;;; #File and Director settings
 (require 'autoinsert)
 
+(setq dropbox-directory
+      (case system-type
+        (windows-nt "D:/Dropbox")
+        (gnu/linux "~/Dropbox")))
+
+;; #Private
+(add-to-list 'load-path (join-path dropbox-directory "src/emacs.d"))
+(require 'user-private nil t)
+
 ;; #auto-insert
 ;; depends: yasnippet
 (setq auto-insert-directory "~/.spacemacs.d/templates/")

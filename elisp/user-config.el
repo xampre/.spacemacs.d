@@ -171,10 +171,6 @@
 (use-package migemo
   :if (executable-find "cmigemo")
   :config (migemo-init))
-
-;; #Private
-(add-to-list 'load-path "~/.emacs.d/private/elisp")
-(require 'user-private nil t)
 
 ;; #hooks
 (add-hook 'after-save-hook 'delete-file-if-no-contents)
