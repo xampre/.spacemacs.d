@@ -90,7 +90,6 @@ values."
      free-keys
      recompile-on-save
      crux
-     iflipb
      refine
      csv-mode
      skewer-mode
@@ -108,7 +107,7 @@ values."
      ;;popwin
      ;;which-key
      auto-complete
-     ;;smartparens
+     smartparens
      ido
      ;;recentf
      )
@@ -186,7 +185,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -365,7 +364,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (require 'user-config)
-  ;;(helm-mode -1)
+  (helm-mode -1)
   ;;(which-key-mode -1)
   (global-set-key "\C-x\C-f" 'find-file)
   )
