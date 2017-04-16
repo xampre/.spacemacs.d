@@ -53,13 +53,13 @@ values."
      react
      haskell
      java
+     markdown
      octave
      org
      ;; perl
      ;; php
      python
      yaml
-     ;; markdown
      git
      github
      ;; (shell :variables
