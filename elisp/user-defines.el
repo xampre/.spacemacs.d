@@ -2,6 +2,7 @@
 (require 'dash)
 (require 'f)
 (require 's)
+(require 'fn)
 
 (defun move-line-up ()
   (interactive)
@@ -95,6 +96,9 @@
         (insert current-line)
         (decf n)))))
 
+(defun org-time-stamp-string (&optional long inactive)
+  (format-time-string (org-time-stamp-format long inactive)))
+
 ;;; http://emacswiki.org/emacs/ToggleWindowSplit
 (defun window-toggle-split-direction ()
   "Switch window split from horizontally to vertically, or vice versa.
@@ -150,6 +154,9 @@ i.e. change right window to bottom, or change bottom window to right."
     (if fname
         (find-file fname)
       (message "Nothing to see anymore."))))
+
+(defun move-file-to-previous (file &optional ok-if-already-exists)
+  (rename-file file ".." ok-if-already-exists))
 
 (defun delete-file-if-no-contents ()
   (let* ((trash delete-by-moving-to-trash)
