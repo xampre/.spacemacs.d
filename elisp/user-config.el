@@ -133,7 +133,7 @@
           (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'org-indent-mode)
-  (define-key org-mode-map [C-tab] 'iflipb-next-buffer)
+  (define-key org-mode-map [C-tab] 'mode-line-other-buffer)
   (define-key org-mode-map [f5] 'org-mode-restart)
   (define-key org-mode-map [C-f5] 'org-render-html)
   )
@@ -171,6 +171,10 @@
 (use-package migemo
   :if (executable-find "cmigemo")
   :config (migemo-init))
+
+(add-to-list 'fringe-styles
+             (list "left-display20%" (floor (* (display-pixel-width) 0.2))))
+
 
 ;; #hooks
 (add-hook 'after-save-hook 'delete-file-if-no-contents)
