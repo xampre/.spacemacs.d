@@ -1,5 +1,6 @@
 ;;; #File and Director settings
 (require 'autoinsert)
+(require 'user-defines)
 
 (setq dropbox-directory
       (case system-type
@@ -12,7 +13,7 @@
 
 ;; #auto-insert
 ;; depends: yasnippet
-(setq auto-insert-directory "~/.spacemacs.d/templates/")
+(setq auto-insert-directory (join-path dropbox-directory "src/templates/"))
 
 (defun my-autoinsert-yas-expand ()
   "Replace text in yasnippet template."

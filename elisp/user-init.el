@@ -39,6 +39,9 @@
 ;;      recentf-auto-cleanup 10
 ;;      recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
 
+;; spacemacs
+(setq spacemacs-useless-buffers-regexp nil)
+
 ;; #enable modes
 (desktop-save-mode t)
 
