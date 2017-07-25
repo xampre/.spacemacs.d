@@ -96,8 +96,8 @@
         (insert current-line)
         (decf n)))))
 
-(defun org-time-stamp-string (&optional long inactive)
-  (format-time-string (org-time-stamp-format long inactive)))
+(defun org-time-stamp-string (&optional long inactive time universal)
+  (format-time-string (org-time-stamp-format long inactive) time universal))
 
 ;;; http://emacswiki.org/emacs/ToggleWindowSplit
 (defun window-toggle-split-direction ()
@@ -140,6 +140,15 @@ i.e. change right window to bottom, or change bottom window to right."
     (when reversep
       (setq files (nreverse files)))
     (nth-from-elem (f-filename (buffer-file-name)) files 1 #'string=)))
+
+(defun unfill-paragraph (&optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text.
+(i.e. the opposite of fill-paragraph)"
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
 
 (defun open-next-file ()
   (interactive)
