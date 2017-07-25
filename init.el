@@ -47,7 +47,7 @@ values."
      ;; erlang
      docker
      ;; ess
-     ;; go
+     (go :variables go-tab-width 4)
      html
      javascript
      react
