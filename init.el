@@ -59,6 +59,7 @@ values."
      ;; perl
      ;; php
      python
+     rust
      yaml
      git
      github
