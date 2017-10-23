@@ -22,8 +22,7 @@
 
 (defun yas-expand-or-helm ()
   (interactive)
-  (let ((yas-fallback-behavior 'return-nil))
-    (or (yas-expand) (helm-yas-complete))))
+  (or (yas-expand) (helm-yas-complete)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
