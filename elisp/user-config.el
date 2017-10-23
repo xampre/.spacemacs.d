@@ -22,8 +22,7 @@
 
 (defun yas-expand-or-helm ()
   (interactive)
-  (let ((yas-fallback-behavior 'return-nil))
-    (or (yas-expand) (helm-yas-complete))))
+  (or (yas-expand) (helm-yas-complete)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -153,7 +152,10 @@
 (with-eval-after-load 'yasnippet
   (add-hook 'snippet-mode-hook 'do-not-want-final-newline)
   (define-key yas-minor-mode-map [tab] nil)
-  (define-key yas-minor-mode-map (kbd "TAB") nil))
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
+  (define-key yas-keymap [tab] 'yas-next-field)
+  (define-key yas-keymap (kbd "TAB") 'yas-next-field)
+  )
 
 (with-eval-after-load 'company
   (define-key company-active-map "\C-n" 'company-select-next)

@@ -36,9 +36,9 @@
    ("Makefile" "Makefile")
    (".projectile" "projectile")
    ("\\.org$" "org")
-   ("\\.pl$" "pl")
-   ("\\.py$" "py")
-   ("\\.sh$" "sh")))
+   (perl-mode "pl")
+   (python-mode "py")
+   (sh-mode "sh")))
 
 (with-eval-after-load 'migemo
   (setq migemo-command "cmigemo")
