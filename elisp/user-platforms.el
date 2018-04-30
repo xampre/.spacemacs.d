@@ -34,7 +34,7 @@
   (set-file-name-coding-system 'cp932)
   (set-keyboard-coding-system 'cp932)
   (set-terminal-coding-system 'cp932)
-  (prefer-coding-system 'utf-8-unix)
+  (setq system-time-locale "C")
   ;; IME
   (when (fboundp 'w32-ime-initialize)
     (setq default-input-method "W32-IME")
