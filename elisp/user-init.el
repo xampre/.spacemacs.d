@@ -4,7 +4,7 @@
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 (modify-syntax-entry ?. "w" minibuffer-local-filename-syntax)
 (modify-syntax-entry ?- "w" minibuffer-local-filename-syntax)
-(modify-coding-system-alist 'file "\\.ahk\\'" 'shift_jis-dos)
+(modify-coding-system-alist 'file "\\.ahk\\'" 'utf-8-with-signature-dos)
 (prefer-coding-system 'utf-8-unix)
 (set-language-environment "Japanese")
 (add-hook 'text-mode-hook 'flyspell-mode)
