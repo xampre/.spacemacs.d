@@ -12,6 +12,13 @@
                  (executable-find "ipython"))))
     (when py (setq python-shell-interpreter py))))
 
+;; #Go
+(defun set-whitespace-style-for-go ()
+  (setq-local whitespace-style (remove 'tab-mark whitespace-style))
+  (setq-local whitespace-style (remove 'tabs whitespace-style))
+  )
+(add-hook 'go-mode-hook 'set-whitespace-style-for-go)
+
 (with-eval-after-load 'flycheck
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
