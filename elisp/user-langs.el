@@ -1,4 +1,9 @@
 (require 'f)
+
+;; #C/C++
+(add-hook 'c-mode-hook 'google-set-c-style)
+(add-hook 'c++-mode-hook 'google-set-c-style)
+
 
 ;; #Python
 ;; Set python-shell-interpreter
