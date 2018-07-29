@@ -158,6 +158,7 @@
   )
 
 (with-eval-after-load 'company
+  (setq company-idle-delay nil)
   (define-key company-active-map "\C-n" 'company-select-next)
   (define-key company-active-map "\C-p" 'company-select-previous)
   (define-key company-active-map "\C-n" 'company-select-next)
